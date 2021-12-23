@@ -14,17 +14,13 @@ public class Circle extends Point {
         this.radius = radius;
     }
 
-    public Point getCentre() {
-        return centre;
-    }
-
     public int getRadius() {
         return radius;
     }
 
-    public String findPointsCircle() throws IOException {
+    public String findPointsCircle() {
         List<Point> pointsCircle = new ArrayList<>();
-        String strPointsCircle = "";
+        String strPointsCircle;
 
         for (Point point : points) {
             double distance = calculateDistance(point, this);
