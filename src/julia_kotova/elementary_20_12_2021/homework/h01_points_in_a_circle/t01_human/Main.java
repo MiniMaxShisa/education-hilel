@@ -7,11 +7,11 @@ public class Main {
         Human human1 = new Human("Elise", "Storm");
         Human human2 = new Human("Jack", "James", "Frost");
 
-        human1.getFullName();
-        human2.getFullName();
+        System.out.println(human1.getFullName());
+        System.out.println(human2.getFullName());
 
-        human1.getShortName();
-        human2.getShortName();
+        System.out.println(human1.getShortName());
+        System.out.println(human2.getShortName());
 
     }
 

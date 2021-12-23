@@ -18,4 +18,8 @@ public class Circle extends Point {
         return radius;
     }
 
+    public double calculateDistance(Point point, Circle circle) {
+        return Math.sqrt((point.x - circle.getX()) * 2 + (point.y - circle.getY()) * 2);
+    }
+
 }

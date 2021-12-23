@@ -17,39 +17,29 @@ public class Human {
         this.surname = surname;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getFullName() {
 
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void getFullName() {
-
-        System.out.print(this.getSurname() + " " + this.getName());
+        String newSecondName = "";
 
         if (secondName != null) {
-            System.out.println(" " + secondName);
+            newSecondName = secondName;
+        }
+
+        return surname + " " + name + " " + newSecondName;
+
+    }
+
+    public String getShortName() {
+
+        String newSecondName = "";
+
+        if (secondName != null) {
+            newSecondName = " " + secondName.charAt(0) + ".";
         } else {
             System.out.println();
         }
 
-    }
-
-    public void getShortName() {
-
-        System.out.print(this.getSurname() + " " + this.getName().charAt(0) + ".");
-
-        if (secondName != null) {
-            System.out.println(" " + secondName.charAt(0) + ".");
-        } else {
-            System.out.println();
-        }
+        return surname + " " + name.charAt(0) + "." + newSecondName;
 
     }
 

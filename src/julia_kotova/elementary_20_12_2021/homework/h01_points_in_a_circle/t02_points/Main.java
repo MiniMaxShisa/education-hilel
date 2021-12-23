@@ -22,14 +22,11 @@ public class Main {
 
     public static void requestPoint() throws IOException {
 
-        Point point;
-        int x, y;
-
         System.out.println("Enter point's coordinates:" + "\n" + "x:");
-        x = Integer.parseInt(reader.readLine());
+        int x = Integer.parseInt(reader.readLine());
         System.out.println("y:");
-        y = Integer.parseInt(reader.readLine());
-        point = new Point(x, y);
+        int y = Integer.parseInt(reader.readLine());
+        Point point = new Point(x, y);
         points.add(point);
 
         requestMorePoints();
@@ -63,16 +60,12 @@ public class Main {
 
     public static Point requestCentre() throws IOException {
 
-        Point centre;
-        int x, y;
-
         System.out.println("Enter centre's coordinates:" + "\n" + "x:");
-        x = Integer.parseInt(reader.readLine());
+        int x = Integer.parseInt(reader.readLine());
         System.out.println("y:");
-        y = Integer.parseInt(reader.readLine());
-        centre = new Point(x, y);
+        int y = Integer.parseInt(reader.readLine());
 
-        return centre;
+        return new Point(x, y);
 
     }
 
