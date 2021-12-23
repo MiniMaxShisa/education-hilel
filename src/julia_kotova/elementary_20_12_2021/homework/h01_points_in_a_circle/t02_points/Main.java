@@ -13,15 +13,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        requestPoints();
-        requestCircle();
+        requestPoint();
         findPointsCircle();
 
     }
 
 
 
-    public static void requestPoints() throws IOException {
+    public static void requestPoint() throws IOException {
 
         Point point;
         int x, y;
@@ -43,7 +42,7 @@ public class Main {
         int choice = Integer.parseInt(reader.readLine());
 
         if (choice == 1) {
-            requestPoints();
+            requestPoint();
         } else if (choice == 2) {
             System.out.println("Your points:" + points.toString() + "\n");
         } else {
@@ -53,29 +52,64 @@ public class Main {
 
     }
 
-    public static void requestCircle() throws IOException {
+    public static Circle requestCircle() throws IOException {
+
+        Point centre = requestCentre();
+        int radius = requestRadius();
+
+        return new Circle(centre, radius);
+
+    }
+
+    public static Point requestCentre() throws IOException {
 
         Point centre;
-        int x, y, radius;
+        int x, y;
 
-        System.out.println("Enter center's of the circle coordinates:" + "\n" + "x:");
+        System.out.println("Enter centre's coordinates:" + "\n" + "x:");
         x = Integer.parseInt(reader.readLine());
         System.out.println("y:");
         y = Integer.parseInt(reader.readLine());
         centre = new Point(x, y);
 
+        return centre;
+
+    }
+
+    public static int requestRadius() throws IOException {
+
         System.out.println("Enter circle's radius:");
-        radius = Integer.parseInt(reader.readLine());
+
+        return Integer.parseInt(reader.readLine());
 
     }
 
-    public static void findPointsCircle() {
+    public static void findPointsCircle() throws IOException {
 
-        System.out.println("Points in a circle: ");
+        List<Point> pointsCircle = new ArrayList<>();
+
+        Circle circle = requestCircle();
+
+        for (Point point : points) {
+
+            double distance = calculateDistance(point, circle);
+
+            if (distance < circle.getRadius()) {
+                pointsCircle.add(point);
+            }
+
+        }
+
+        if (pointsCircle.size() == 0) {
+            System.out.println("0 points in a circle.");
+        } else {
+            System.out.println("Points in a circle: " + pointsCircle);
+        }
 
     }
 
-    //точка лежит в окружности, если расстояние от центра окружности до точки меньше радиуса окружности
-    //расстояние между точками насчитывается по формуле d = корень((x1-x2)^2 + (y1-y2)^2), где x1,y1- координаты первой точки, x2,y2- координаты второй
+    public static double calculateDistance(Point point, Circle circle) {
+        return Math.sqrt((point.x - circle.getX()) * 2 + (point.y - circle.getY()) * 2);
+    }
 
 }
