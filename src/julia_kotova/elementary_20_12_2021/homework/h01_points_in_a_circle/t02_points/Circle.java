@@ -12,10 +12,6 @@ public class Circle extends Point {
         this.radius = radius;
     }
 
-    public int getRadius() {
-        return radius;
-    }
-
     public String findPointsCircle() {
         List<Point> pointsCircle = new ArrayList<>();
         String strPointsCircle;
@@ -23,7 +19,7 @@ public class Circle extends Point {
         for (Point point : points) {
             double distance = calculateDistance(point, this);
 
-            if (distance < this.getRadius()) {
+            if (distance < radius) {
                 pointsCircle.add(point);
             }
         }
