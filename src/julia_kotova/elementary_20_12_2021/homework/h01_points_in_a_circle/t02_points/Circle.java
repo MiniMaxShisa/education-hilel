@@ -1,6 +1,4 @@
 package julia_kotova.elementary_20_12_2021.homework.h01_points_in_a_circle.t02_points;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
