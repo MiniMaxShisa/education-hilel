@@ -6,8 +6,7 @@ import java.util.List;
 public class Point {
 
     public static List<Point> points = new ArrayList<>();
-    public int x;
-    public int y;
+    public int x, y;
 
     public Point() {
     }
@@ -28,6 +27,10 @@ public class Point {
     @Override
     public String toString() {
         return "[" + x + "," + y + "]";
+    }
+
+    public double calculateDistance(Point point, Circle circle) {
+        return Math.sqrt((point.x - circle.getX()) * 2 + (point.y - circle.getY()) * 2);
     }
 
 }

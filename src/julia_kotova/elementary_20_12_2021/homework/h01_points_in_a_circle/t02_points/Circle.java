@@ -1,5 +1,9 @@
 package julia_kotova.elementary_20_12_2021.homework.h01_points_in_a_circle.t02_points;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Circle extends Point {
 
     public Point centre;
@@ -18,8 +22,25 @@ public class Circle extends Point {
         return radius;
     }
 
-    public double calculateDistance(Point point, Circle circle) {
-        return Math.sqrt((point.x - circle.getX()) * 2 + (point.y - circle.getY()) * 2);
+    public String findPointsCircle() throws IOException {
+        List<Point> pointsCircle = new ArrayList<>();
+        String strPointsCircle = "";
+
+        for (Point point : points) {
+            double distance = calculateDistance(point, this);
+
+            if (distance < this.getRadius()) {
+                pointsCircle.add(point);
+            }
+        }
+
+        if (pointsCircle.size() == 0) {
+            strPointsCircle = "0 points in a circle.";
+        } else {
+            strPointsCircle = "Points in a circle: " + pointsCircle;
+        }
+
+        return strPointsCircle;
     }
 
 }
