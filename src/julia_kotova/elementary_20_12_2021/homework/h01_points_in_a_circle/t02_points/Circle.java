@@ -1,8 +1,6 @@
 package julia_kotova.elementary_20_12_2021.homework.h01_points_in_a_circle.t02_points;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Circle extends Point {
+public class Circle {
 
     public Point centre;
     public int radius;
@@ -12,25 +10,20 @@ public class Circle extends Point {
         this.radius = radius;
     }
 
-    public String findPointsCircle() {
-        List<Point> pointsCircle = new ArrayList<>();
-        String strPointsCircle;
+    public int getX() {
+        return centre.getX();
+    }
 
-        for (Point point : points) {
-            double distance = calculateDistance(point, this);
+    public int getY() {
+        return centre.getY();
+    }
 
-            if (distance < radius) {
-                pointsCircle.add(point);
-            }
-        }
+    public int getRadius() {
+        return radius;
+    }
 
-        if (pointsCircle.size() == 0) {
-            strPointsCircle = "0 points in a circle.";
-        } else {
-            strPointsCircle = "Points in a circle: " + pointsCircle;
-        }
-
-        return strPointsCircle;
+    public Point getCentre() {
+        return centre;
     }
 
 }
