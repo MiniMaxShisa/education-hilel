@@ -1,5 +1,7 @@
 package julia_kotova.elementary_20_12_2021.homework.h01_points_in_a_circle.t01_human;
 
+import java.util.Objects;
+
 public class Human {
 
     public String name;
@@ -41,6 +43,24 @@ public class Human {
 
         return surname + " " + name.charAt(0) + "." + newSecondName;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + secondName + surname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return Objects.equals(name, human.name) && Objects.equals(surname, human.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(surname);
     }
 
 }
