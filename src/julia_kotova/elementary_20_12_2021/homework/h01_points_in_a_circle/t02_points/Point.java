@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Point {
 
     public static List<Point> points = new ArrayList<>();
-    public int x, y;
+    private int x, y;
 
     public Point(int x, int y) {
         this.x = x;

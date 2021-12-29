@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Circle {
 
-    public Point centre;
-    public int radius;
+    private Point centre;
+    private int radius;
 
     public Circle(Point centre, int radius) {
         this.centre = centre;

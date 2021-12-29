@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Human {
 
-    public String name;
-    public String secondName;
-    public String surname;
+    private String name;
+    private String surname;
+    private String secondName;
 
     public Human(String name, String surname) {
         this.name = name;
