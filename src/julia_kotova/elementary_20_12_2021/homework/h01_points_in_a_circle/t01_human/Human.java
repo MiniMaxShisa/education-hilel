@@ -19,35 +19,34 @@ public class Human {
         this.surname = surname;
     }
 
-    public String getFullName() {
+    public String getSurname() {
+        return surname;
+    }
 
+    public String getFullName() {
         String newSecondName = "";
 
         if (secondName != null) {
             newSecondName = secondName;
         }
 
-        return surname + " " + name + " " + newSecondName;
-
+        return this + newSecondName;
     }
 
     public String getShortName() {
-
         String newSecondName = "";
+        String newName = " " + name.charAt(0) + ".";
 
         if (secondName != null) {
             newSecondName = " " + secondName.charAt(0) + ".";
-        } else {
-            System.out.println();
         }
 
-        return surname + " " + name.charAt(0) + "." + newSecondName;
-
+        return surname + newName + newSecondName;
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + secondName + surname;
+        return surname + " " + name + " ";
     }
 
     @Override
@@ -55,12 +54,12 @@ public class Human {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return Objects.equals(name, human.name) && Objects.equals(surname, human.surname);
+        return Objects.equals(name, human.name) && Objects.equals(secondName, human.secondName) && Objects.equals(surname, human.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(surname);
+        return Objects.hash(name, secondName, surname);
     }
 
 }

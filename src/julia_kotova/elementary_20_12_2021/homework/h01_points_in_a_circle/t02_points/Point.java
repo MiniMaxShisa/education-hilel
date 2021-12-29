@@ -2,6 +2,7 @@ package julia_kotova.elementary_20_12_2021.homework.h01_points_in_a_circle.t02_p
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Point {
 
@@ -26,21 +27,20 @@ public class Point {
         return "[" + x + "," + y + "]";
     }
 
-    public static List<Point> findPointsCircle(ArrayList points, Circle circle) {
-        List<Point> pointsCircle = new ArrayList<>();
-
-        for (Point point : Point.points) {
-            double distance = calculateDistance(point, circle.getCentre());
-
-            if (distance < circle.getRadius()) {
-                pointsCircle.add(point);
-            }
-        }
-
-        return pointsCircle;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
     }
 
-    public static double calculateDistance(Point point, Point circle) {
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    public double calculateDistance(Point point, Point circle) {
         return Math.sqrt((point.x - circle.getX()) * 2 + (point.y - circle.getY()) * 2);
     }
 

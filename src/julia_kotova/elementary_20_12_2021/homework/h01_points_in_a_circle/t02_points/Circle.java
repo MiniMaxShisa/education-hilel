@@ -1,5 +1,9 @@
 package julia_kotova.elementary_20_12_2021.homework.h01_points_in_a_circle.t02_points;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Circle {
 
     public Point centre;
@@ -10,20 +14,37 @@ public class Circle {
         this.radius = radius;
     }
 
-    public int getX() {
-        return centre.getX();
+    @Override
+    public String toString() {
+        return "Circle: centre = " + centre +
+                ", radius = " + radius;
     }
 
-    public int getY() {
-        return centre.getY();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Circle circle = (Circle) o;
+        return radius == circle.radius && Objects.equals(centre, circle.centre);
     }
 
-    public int getRadius() {
-        return radius;
+    @Override
+    public int hashCode() {
+        return Objects.hash(centre, radius);
     }
 
-    public Point getCentre() {
-        return centre;
+    public List<Point> findPointsCircle() {
+        List<Point> pointsCircle = new ArrayList<>();
+
+        for (Point point : Point.points) {
+            double distance = point.calculateDistance(point, centre);
+
+            if (distance < radius) {
+                pointsCircle.add(point);
+            }
+        }
+
+        return pointsCircle;
     }
 
 }
