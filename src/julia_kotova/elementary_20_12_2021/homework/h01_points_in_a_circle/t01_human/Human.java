@@ -19,10 +19,6 @@ public class Human {
         this.surname = surname;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
     public String getFullName() {
         String newSecondName = "";
 
